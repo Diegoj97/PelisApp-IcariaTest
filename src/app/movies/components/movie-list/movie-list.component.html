@@ -1,7 +1,7 @@
 
 <div class="movie-list-container">
-  @if (movies!.length > 0) {
-    @for (movie of movies; track movie.id) {
+  @if (movies().length > 0) {
+    @for (movie of movies(); track movie.id) {
       <div class="movie-card">
         <app-movie-card [movie]="movie"></app-movie-card>
       </div>

@@ -1,4 +1,4 @@
-import { Component, inject, Input, signal } from '@angular/core';
+import { Component, inject, model, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
@@ -13,7 +13,7 @@ import { MovieService } from '../../../services/movie.service';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent {
-  @Input() movies: Movie[] = [];
+  movies = model<Movie[]>([]);
   movieService = inject(MovieService);
   loading = signal(false);
   currentPage: number = 1;
@@ -26,10 +26,10 @@ export class MovieListComponent {
   }
 
   loadMovies() {
-    this.movies = [];
+    this.movies.set([]);
     this.loading.set(true);
     this.movieService.getMoviesPaginated(this.currentPage, this.pageSize).subscribe((response) => {
-      this.movies = response.movies;
+      this.movies.set(response.movies);
       this.totalMovies = response.total;
       this.totalPages = response.totalPages;
       this.loading.set(false);
@@ -44,10 +44,12 @@ export class MovieListComponent {
   }
 
   nextPage() {
+    if (this.loading()) return;
     this.goToPage(this.currentPage + 1);
   }
 
   prevPage() {
+    if (this.loading()) return;
     this.goToPage(this.currentPage - 1);
   }
 }
