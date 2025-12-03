@@ -1,10 +1,10 @@
 <div class="movie-card">
-  <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}" />
-  <h3>{{ movie.title }}</h3>
+  <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}" class="movie-img" />
+  <h3>{{ movie.title.length > 20 ? (movie.title.slice(0, 17) + '...') : movie.title }}</h3>
   <p>
     {{
       movie.overview && movie.overview.trim().length > 0
-        ? (movie.overview.length > 70 ? (movie.overview.slice(0, 67) + '...') : movie.overview)
+        ? (movie.overview.length > 70 ? (movie.overview.slice(0, 50) + '...') : movie.overview)
         : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod, nunc ut laoreet.'
     }}
   </p>

@@ -1,3 +1,17 @@
+.navbar-search-item:last-child {
+  margin-left: 32px;
+}
+// Estilos para el slider de puntuación
+.slider-input {
+  accent-color: #5d8a5f; // Verde principal de la app
+  width: 150px;
+  margin: 0 10px;
+}
+.slider-value {
+  color: #5d8a5f;
+  font-weight: bold;
+  margin-left: 8px;
+}
 // Popcorn slider personalizado
 .popcorn-slider {
   display: flex;
@@ -73,9 +87,6 @@
 
 
 .navbar-search {
-  width: 100%;
-  background: linear-gradient(90deg, #a5c4a6 0%, #f5f8f5 100%);
-  padding: 2rem 0.5rem;
   display: flex;
   justify-content: center;
 }

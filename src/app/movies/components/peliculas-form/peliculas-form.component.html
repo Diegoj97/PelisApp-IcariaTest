@@ -19,8 +19,9 @@
         </div>
     </div>
     <div class="navbar-search-item slider-navbar">
-      <span class="slider-label">Puntuación: {{ filtrosForm.get('puntuacion')?.value | number:'1.1-1' }}</span>
-      <mat-slider formControlName="puntuacion" min="0" max="10" step="0.5" thumbLabel tickInterval="1"></mat-slider>
+      <span class="slider-label">Puntuación:</span>
+      <span class="slider-value">{{ filtrosForm.get('puntuacion')?.value | number:'1.1-1' }}</span>
+      <input type="range" formControlName="puntuacion" min="0" max="10" step="0.5" class="slider-input" />
     </div>
     <div class="navbar-search-item">
       <button mat-raised-button color="primary" type="submit">Buscar</button>
