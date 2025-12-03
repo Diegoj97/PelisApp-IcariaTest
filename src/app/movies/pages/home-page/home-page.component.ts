@@ -12,7 +12,7 @@ import { MovieListComponent } from '../../components/movie-list/movie-list.compo
 export class HomePageComponent {
 
   movieService = inject(MovieService);
-  moviesSignal = toSignal(this.movieService.getMovies());
+  moviesSignal = toSignal(this.movieService.getMoviesPaginated());
 
   constructor() {
     effect(() => {

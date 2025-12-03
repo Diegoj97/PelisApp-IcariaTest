@@ -1,3 +1,57 @@
+.pagination-controls-ui.flat-style {
+    background: transparent;
+    box-shadow: none;
+    padding: 0.8rem 0;
+    gap: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flat-style .mat-paginator-btn {
+    min-width: 48px;
+    height: 48px;
+    padding: 0;
+    background: transparent !important;
+    color: #334834;
+    border-radius: 50%;
+    box-shadow: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flat-style .mat-paginator-btn:not([disabled]):hover {
+    background: rgba(0, 0, 0, 0.04) !important; /* Ligero hover */
+    color: #5d8a5f;
+}
+
+.flat-style .mat-paginator-btn[disabled] {
+    opacity: 0.3;
+}
+
+.flat-style .mat-paginator-info {
+    font-weight: 500;
+    font-size: 1.15rem;
+    color: #5d8a5f;
+    background: #eaf3ea;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    gap: 0.5rem;
+    letter-spacing: 0.5px;
+}
+/* Iconos más grandes y centrados */
+.pagination-controls-ui .mat-icon {
+    font-size: 32px !important;
+    height: 32px;
+    width: 32px;
+    vertical-align: middle;
+    color: #5d8a5f;
+}
 .movie-list {
   display: flex;
   flex-wrap: wrap;

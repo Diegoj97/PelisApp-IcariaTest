@@ -3,5 +3,5 @@
   <p>Busca y filtra películas fácilmente.</p>
 </div>
 
-<app-movie-list [movies]="moviesSignal() ?? []"></app-movie-list>
+<app-movie-list [movies]="moviesSignal()?.movies ?? []"></app-movie-list>
 

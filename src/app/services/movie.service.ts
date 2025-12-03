@@ -11,15 +11,20 @@ export class MovieService {
 
   constructor(private http: HttpClient) {}
 
-  getMovies(page: number = 1, endpoint: string = 'popular'): Observable<Movie[]> {
+  getMoviesPaginated(page: number = 1, pageSize: number = 18, endpoint: string = 'popular'): Observable<{ movies: Movie[], total: number, totalPages: number }> {
     const url = `${this.apiUrl}/${endpoint}`;
     const params = {
       api_key: this.apiKey,
       language: 'es-ES',
+      page_size: pageSize.toString(),
       page: page.toString()
     };
-    return this.http.get<{ results: Movie[] }>(url, { params }).pipe(
-      map(response => response.results)
+    return this.http.get<{ results: Movie[], total_pages: number, total_results: number }>(url, { params }).pipe(
+      map(response => ({
+        movies: response.results,
+        total: response.total_results,
+        totalPages: response.total_pages
+      }))
     );
   }
 

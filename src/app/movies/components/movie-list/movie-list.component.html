@@ -7,3 +7,15 @@
     <p>No hay películas para mostrar.</p>
   }
 </div>
+
+<div class="pagination-controls-ui flat-style">
+    <button mat-icon-button (click)="prevPage()" [disabled]="currentPage === 1" aria-label="Página anterior">
+        <mat-icon>chevron_left</mat-icon>
+    </button>
+    <span class="mat-paginator-info">
+        Página <b> {{currentPage}} </b> de <b> {{totalPages}} </b>
+    </span>
+    <button mat-icon-button (click)="nextPage()" [disabled]="currentPage === totalPages || totalPages === 0" aria-label="Página siguiente">
+        <mat-icon>chevron_right</mat-icon>
+    </button>
+</div>
