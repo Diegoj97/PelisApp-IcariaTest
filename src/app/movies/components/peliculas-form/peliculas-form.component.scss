@@ -1,29 +1,175 @@
-.filtro-card {
+// Popcorn slider personalizado
+.popcorn-slider {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.popcorn-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+.popcorn-bowl {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.popcorn-bowl svg {
+  display: block;
+}
+.popcorn-score {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #d2b48c;
+  text-shadow: 0 1px 2px #fffbe8;
+}
+// Popcorn slider personalizado
+.popcorn-slider {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.popcorn-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+.popcorn-bowl {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.popcorn-bowl svg {
+  display: block;
+}
+.popcorn-score {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #d2b48c;
+  text-shadow: 0 1px 2px #fffbe8;
+}
+
+
+.navbar-search {
   width: 100%;
-  min-width: 260px;
-  max-width: 320px;
-  margin: 0 auto;
-  background: #f5f8f5;
+  background: linear-gradient(90deg, #a5c4a6 0%, #f5f8f5 100%);
+  padding: 2rem 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-search-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+  background: #eaf3ea;
+  border-radius: 1.5rem;
   box-shadow: 0 2px 12px rgba(44, 89, 61, 0.08);
-  border-radius: 1.2rem;
+  padding: 1rem 2rem;
 }
 
-.filtros-form {
+.navbar-search-item {
   display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.full-width-input {
-  width: 100%;
+.slider-navbar {
+  min-width: 180px;
+  max-width: 220px;
 }
 
-.slider-container {
-  margin: 0.5rem 0 1rem 0;
+
+.navbar-search-btn {
+  background: #5d8a5f;
+  color: #fff;
+  border-radius: 0.8rem;
+  padding: 0.7rem 2rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.navbar-search-btn:hover {
+  background: #80a882;
+  color: #334834;
 }
 
-.botones-filtros {
+.navbar-search-container mat-form-field,
+.navbar-search-container mat-select,
+.navbar-search-container input {
+  color: #334834;
+}
+
+
+.navbar-search-container ::ng-deep .mat-select-panel,
+.navbar-search-container ::ng-deep .mat-select-panel .mat-option,
+.navbar-search-container ::ng-deep .mat-select-panel .mat-optgroup {
+  background: rgba(234, 243, 234, 0.98) !important; /* Verde claro, casi opaco */
+  border-radius: 0.8rem;
+}
+
+.navbar-search-container ::ng-deep .mat-select {
+  background: rgba(93, 138, 95, 0.15); /* Verde con opacidad */
+  border-radius: 0.8rem;
+}
+
+.navbar-search-container mat-icon {
+  color: #5d8a5f;
+}
+
+/* Oculta la tarjeta y estilos antiguos */
+.filtro-card, .filtros-form, .full-width-input, .slider-container, .botones-filtros {
+  display: none !important;
+}
+
+// Fondo sólido para el menú desplegable de Angular Material (cdk-overlay)
+.cdk-overlay-pane {
+  background: #fff !important;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+// Estilo específico para el panel del select en el overlay
+::ng-deep .cdk-overlay-pane .mat-select-panel {
+  background: #fff !important;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+// Carrusel de género: alinear texto y flechas
+.carrusel-genero {
   display: flex;
-  gap: 1rem;
-  justify-content: flex-end;
+  align-items: center;
+  gap: 0.2rem;
+}
+.genero-label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0 0.5rem;
+  min-width: 90px;
+  text-align: center;
 }

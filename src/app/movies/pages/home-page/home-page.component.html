@@ -1,13 +1,8 @@
 
-<div class="contenedor-principal" style="display: flex; gap: 2rem; align-items: flex-start;">
-  <aside class="columna-filtros" style="flex: 0 0 320px;">
-    <app-peliculas-form></app-peliculas-form>
-  </aside>
+
+<div class="contenedor-principal" style="display: flex; flex-direction: column; gap: 2rem; align-items: stretch;">
+  <app-peliculas-form></app-peliculas-form>
   <main class="columna-resultados" style="flex: 1;">
-    <div class="home-container">
-      <h1>Bienvenido a PelisApp</h1>
-      <p>Busca y filtra películas fácilmente.</p>
-    </div>
     <app-movie-list [movies]="moviesSignal()?.movies ?? []"></app-movie-list>
   </main>
 </div>

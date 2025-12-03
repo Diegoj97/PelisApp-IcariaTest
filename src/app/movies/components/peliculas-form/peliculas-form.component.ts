@@ -28,11 +28,22 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class PeliculasFormComponent {
   filtrosForm: FormGroup;
+  generos = [
+    { value: '', label: 'Cualquiera' },
+    { value: 'accion', label: 'Acción' },
+    { value: 'terror', label: 'Terror' },
+    { value: 'drama', label: 'Drama' }
+  ];
+  generoActualIndex = 0;
+
+  get generoActualLabel() {
+    return this.generos[this.generoActualIndex].label;
+  }
 
   constructor(private fb: FormBuilder) {
     this.filtrosForm = this.fb.group({
       titulo: [''],
-      genero: [''],
+      genero: [this.generos[0].value],
       puntuacion: [0]
     });
 
@@ -41,12 +52,18 @@ export class PeliculasFormComponent {
     });
   }
 
+  cambiarGenero(direccion: number): void {
+    this.generoActualIndex = (this.generoActualIndex + direccion + this.generos.length) % this.generos.length;
+    this.filtrosForm.get('genero')?.setValue(this.generos[this.generoActualIndex].value);
+  }
+
   limpiarFiltros(): void {
     this.filtrosForm!.reset({
       titulo: '',
-      genero: '',
+      genero: this.generos[0].value,
       puntuacion: 0
     });
+    this.generoActualIndex = 0;
   }
 
   onSubmit(): void {
