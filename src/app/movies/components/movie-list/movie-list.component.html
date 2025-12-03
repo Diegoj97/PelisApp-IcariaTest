@@ -7,7 +7,12 @@
       </div>
     }
   } @else {
+    @if (loading()) {
+    <app-loader></app-loader>
+    }
+    @else {
     <p>No hay películas para mostrar.</p>
+    }
   }
 </div>
 

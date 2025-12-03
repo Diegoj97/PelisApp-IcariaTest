@@ -1,19 +1,21 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
+import { LoaderComponent } from '../../../components/common/loader/loader.component';
 import { Movie } from '../../interfaces/movie.interface';
 import { MovieService } from '../../../services/movie.service';
 
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
-  imports: [MovieCardComponent, MatButtonModule, MatIconModule],
+  imports: [MovieCardComponent, MatButtonModule, MatIconModule, LoaderComponent],
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent {
   @Input() movies: Movie[] = [];
   movieService = inject(MovieService);
+  loading = signal(false);
   currentPage: number = 1;
   pageSize: number = 18;
   totalMovies: number = 0;
@@ -24,10 +26,13 @@ export class MovieListComponent {
   }
 
   loadMovies() {
+    this.movies = [];
+    this.loading.set(true);
     this.movieService.getMoviesPaginated(this.currentPage, this.pageSize).subscribe((response) => {
       this.movies = response.movies;
       this.totalMovies = response.total;
       this.totalPages = response.totalPages;
+      this.loading.set(false);
     });
   }
 

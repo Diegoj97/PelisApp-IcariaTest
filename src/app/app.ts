@@ -2,7 +2,7 @@ import { Component, signal } from '@angular/core';
 
 
 import { RouterOutlet } from '@angular/router';
-import { FooterComponent } from './components/common/footer.component';
+import { FooterComponent } from './components/common/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({

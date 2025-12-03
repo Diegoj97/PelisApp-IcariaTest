@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { Movie } from '../movies/interfaces/movie.interface';
 import { environment } from '../../environments/environment';
 
@@ -20,6 +21,7 @@ export class MovieService {
       page: page.toString()
     };
     return this.http.get<{ results: Movie[], total_pages: number, total_results: number }>(url, { params }).pipe(
+      delay(4000),
       map(response => ({
         movies: response.results.slice(0, pageSize),
         total: response.total_results,
