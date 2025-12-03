@@ -1,0 +1,9 @@
+<div class="movie-list">
+  @if (movies!.length > 0) {
+    @for (movie of movies; track movie.id) {
+      <app-movie-card [movie]="movie"></app-movie-card>
+    }
+  } @else {
+    <p>No hay películas para mostrar.</p>
+  }
+</div>
