@@ -53,7 +53,26 @@
     color: #5d8a5f;
 }
 .movie-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
+
+/* Each movie card: 6 per row */
+.movie-card {
+    flex: 0 0 calc(16.666% - 1rem);
+    box-sizing: border-box;
+}
+.movie-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: flex-start;
+}
+
+.movie-card {
+    flex: 0 0 calc(16.666% - 24px);
+    box-sizing: border-box;
+    margin-bottom: 24px;
+}
+

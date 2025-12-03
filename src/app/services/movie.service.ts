@@ -21,7 +21,7 @@ export class MovieService {
     };
     return this.http.get<{ results: Movie[], total_pages: number, total_results: number }>(url, { params }).pipe(
       map(response => ({
-        movies: response.results,
+        movies: response.results.slice(0, pageSize),
         total: response.total_results,
         totalPages: response.total_pages
       }))
