@@ -68,3 +68,11 @@
     width: 100%;
 }
 
+/* Hacemos que el loader y el mensaje de "no resultados" ocupen todo el ancho */
+app-loader, p {
+    grid-column: 1 / -1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+

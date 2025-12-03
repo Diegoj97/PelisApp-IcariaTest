@@ -1,5 +1,5 @@
 .navbar-search-item:last-child {
-  margin-left: 32px;
+  /* margin-left: 32px;  <-- Eliminado para evitar problemas en responsive, se controla con gap */
 }
 // Estilos para el slider de puntuación
 .slider-input {
@@ -48,64 +48,74 @@
   color: #d2b48c;
   text-shadow: 0 1px 2px #fffbe8;
 }
-// Popcorn slider personalizado
-.popcorn-slider {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-}
-.popcorn-arrow {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  padding: 0;
-}
-.popcorn-bowl {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.popcorn-bowl svg {
-  display: block;
-}
-.popcorn-score {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #d2b48c;
-  text-shadow: 0 1px 2px #fffbe8;
-}
 
 
 .navbar-search {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .navbar-search-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 1.5rem;
   background: #eaf3ea;
   border-radius: 1.5rem;
   box-shadow: 0 2px 12px rgba(44, 89, 61, 0.08);
   padding: 1rem 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .navbar-search-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+  .navbar-search-container {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.5rem;
+    gap: 1rem;
+    border-radius: 1rem;
+  }
+
+  .navbar-search-item {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .navbar-search-item:last-child {
+    margin-left: 0;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .navbar-input {
+    width: 100%;
+  }
+
+  .slider-navbar {
+    max-width: 100%;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .slider-input {
+    flex: 1;
+  }
+
+  .carrusel-genero {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 .slider-navbar {
