@@ -52,30 +52,19 @@
     vertical-align: middle;
     color: #5d8a5f;
 }
-.movie-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
 
-/* Each movie card: 6 per row */
-.movie-card {
-    flex: 0 0 calc(16.666% - 1rem);
-    box-sizing: border-box;
-}
+/* Eliminamos estilos antiguos de flex que ya no se usan */
 .movie-list-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 24px;
-    justify-content: flex-start;
     background: linear-gradient(135deg, #eaf3ea 60%, #c7e5c8 100%);
     border-radius: 18px;
     padding: 2.5rem 1rem 2rem 1rem;
 }
 
 .movie-card {
-    flex: 0 0 calc(16.666% - 24px);
-    box-sizing: border-box;
-    margin-bottom: 24px;
+    /* El ancho se controla por el grid, no necesitamos flex ni width aquí */
+    width: 100%;
 }
 
