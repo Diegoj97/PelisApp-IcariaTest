@@ -35,6 +35,7 @@ export class MovieListComponent {
     if (page < 1 || page > this.totalPages) return;
     this.currentPage = page;
     this.loadMovies();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   nextPage() {
