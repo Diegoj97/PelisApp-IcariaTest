@@ -1,0 +1,29 @@
+.filtro-card {
+  width: 100%;
+  min-width: 260px;
+  max-width: 320px;
+  margin: 0 auto;
+  background: #f5f8f5;
+  box-shadow: 0 2px 12px rgba(44, 89, 61, 0.08);
+  border-radius: 1.2rem;
+}
+
+.filtros-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.full-width-input {
+  width: 100%;
+}
+
+.slider-container {
+  margin: 0.5rem 0 1rem 0;
+}
+
+.botones-filtros {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
