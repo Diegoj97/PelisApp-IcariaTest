@@ -13,6 +13,10 @@ import { MovieService } from '../../../services/movie.service';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent {
+// (model()) es de lectura y escritura:
+// Al usar model, creas una señal que puede recibir datos del 
+// padre (como un input normal) Y TAMBIÉN puede ser modificada internamente por el 
+// componente (como lo haces al cargar las películas de la API).
   movies = model<Movie[]>([]);
   movieService = inject(MovieService);
   loading = signal(false);
