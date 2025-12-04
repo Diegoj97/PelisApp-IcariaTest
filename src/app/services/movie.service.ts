@@ -92,5 +92,17 @@ export class MovieService {
     );
   }
 
+  getMovieById(id: string): Observable<Movie> {
+    const url = `${this.apiUrl}/${id}`;
+    const params = {
+      api_key: this.apiKey,
+      language: 'es-ES'
+    };
+    return this.http.get<Movie>(url, { params }).pipe(
+      delay(1000)
+    );
+  }
+
+
 
 }

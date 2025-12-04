@@ -1,0 +1,52 @@
+<div class="detail-container">
+  @if (loading()) {
+    <app-loader></app-loader>
+  } @else {
+    @if (movie(); as m) {
+      <div class="movie-card">
+        <div class="movie-content">
+          <div class="poster-wrapper">
+            <img class="poster" [src]="'https://image.tmdb.org/t/p/w500' + m.poster_path" [alt]="m.title">
+          </div>
+          <div class="info-wrapper">
+            <div class="label">Película</div>
+            <h1 class="title">{{ m.title }}</h1>
+            <p class="date">{{ m.release_date | date:'longDate' }}</p>
+            
+            <div class="section">
+              <h2 class="subtitle">Resumen</h2>
+              <p class="description">{{ m.overview }}</p>
+            </div>
+
+            <div class="stats">
+              <div class="rating">
+                <span class="star">★</span>
+                <span class="score">{{ m.vote_average | number:'1.1-1' }}</span>
+                <span class="max-score">/ 10</span>
+              </div>
+              <div class="votes">
+                {{ m.vote_count }} votos
+              </div>
+            </div>
+
+            <div class="actions">
+                <a routerLink="/movies" class="back-link">← Volver al listado</a>
+            </div>
+          </div>
+        </div>
+        
+        @if (m.backdrop_path) {
+          <div class="backdrop-wrapper">
+              <img class="backdrop" [src]="'https://image.tmdb.org/t/p/original' + m.backdrop_path" alt="Backdrop">
+          </div>
+        }
+      </div>
+
+    } @else {
+      <div class="not-found">
+        <p>No se encontró la película.</p>
+        <a routerLink="/movies" class="back-link">Volver al inicio</a>
+      </div>
+    }
+  }
+</div>

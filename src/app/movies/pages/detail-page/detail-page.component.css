@@ -1,0 +1,143 @@
+.detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #eaf3ea 60%, #c7e5c8 100%);
+  border-radius: 18px;
+}
+
+.movie-card {
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.movie-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .movie-content {
+    flex-direction: row;
+  }
+}
+
+.poster-wrapper {
+  flex-shrink: 0;
+}
+
+.poster {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.info-wrapper {
+  flex: 1;
+}
+
+.label {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  color: #5d8a5f; /* Primary Green */
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  margin-top: 0.25rem;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #334834; /* Dark Green */
+  line-height: 1.2;
+}
+
+.date {
+  margin-top: 0.5rem;
+  color: #6b7280;
+}
+
+.section {
+  margin-top: 1.5rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #334834; /* Dark Green */
+}
+
+.description {
+  margin-top: 0.5rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.stats {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+}
+
+.star {
+  color: #eab308; /* Yellow-500 */
+  font-size: 1.25rem;
+}
+
+.score {
+  margin-left: 0.25rem;
+  font-weight: 700;
+  color: #4b5563;
+}
+
+.max-score {
+  margin-left: 0.25rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.votes {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.actions {
+  margin-top: 1.5rem;
+}
+
+.back-link {
+  color: #5d8a5f; /* Primary Green */
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: #334834; /* Dark Green */
+}
+
+.backdrop-wrapper {
+  margin-top: 2rem;
+}
+
+.backdrop {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.not-found {
+  text-align: center;
+  padding: 2.5rem;
+}
