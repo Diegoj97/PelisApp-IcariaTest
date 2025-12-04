@@ -1,5 +1,5 @@
 
-<div class="movie-list-container" [class.is-loading]="loading()">
+<div class="movie-list-container" [class.is-loading]="loading()" [class.is-empty]="movies().length === 0 && !loading()">
   @if (movies().length > 0) {
     @for (movie of movies(); track movie.id) {
       <div class="movie-card">

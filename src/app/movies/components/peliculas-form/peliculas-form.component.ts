@@ -60,7 +60,7 @@ export class PeliculasFormComponent {
     });
     this.generoActualIndex = 0;
     // Opcional: Emitir búsqueda vacía al limpiar para volver a cargar las populares
-    // this.onSubmit(); 
+    this.onSubmit(); 
   }
 
   onSubmit(): void {

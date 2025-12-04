@@ -76,7 +76,8 @@ app-loader, p {
     justify-content: center;
 }
 
-.movie-list-container.is-loading {
+.movie-list-container.is-loading,
+.movie-list-container.is-empty {
     display: flex;
     flex-direction: column;
     justify-content: center;
