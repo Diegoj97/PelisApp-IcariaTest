@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -8,6 +8,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { GENRES } from '../../constants/genres.constant';
+import { GenreOption } from '../../interfaces/genre-option.interface';
+import { noSpecialCharsValidator } from '../../../validators/custom-validators';
 
 @Component({
   selector: 'app-peliculas-form',
@@ -27,13 +30,9 @@ import { MatIconModule } from '@angular/material/icon';
   ]
 })
 export class PeliculasFormComponent {
+  @Output() search = new EventEmitter<{ titulo: string, genero: string, puntuacion: number }>();
   filtrosForm: FormGroup;
-  generos = [
-    { value: '', label: 'Cualquiera' },
-    { value: 'accion', label: 'Acción' },
-    { value: 'terror', label: 'Terror' },
-    { value: 'drama', label: 'Drama' }
-  ];
+  generos: GenreOption[] = GENRES;
   generoActualIndex = 0;
 
   get generoActualLabel() {
@@ -42,13 +41,9 @@ export class PeliculasFormComponent {
 
   constructor(private fb: FormBuilder) {
     this.filtrosForm = this.fb.group({
-      titulo: [''],
+      titulo: ['', [noSpecialCharsValidator()]],
       genero: [this.generos[0].value],
       puntuacion: [0]
-    });
-
-    this.filtrosForm.valueChanges.subscribe(valores => {
-      console.log('Nuevos valores de filtro:', valores);
     });
   }
 
@@ -64,9 +59,14 @@ export class PeliculasFormComponent {
       puntuacion: 0
     });
     this.generoActualIndex = 0;
+    // Opcional: Emitir búsqueda vacía al limpiar para volver a cargar las populares
+    // this.onSubmit(); 
   }
 
   onSubmit(): void {
-    console.log('Filtros aplicados:', this.filtrosForm!.value);
+    if (this.filtrosForm.valid) {
+      console.log('Emitiendo filtros:', this.filtrosForm.value);
+      this.search.emit(this.filtrosForm.value);
+    }
   }
 }

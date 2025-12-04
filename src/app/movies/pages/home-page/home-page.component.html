@@ -1,9 +1,15 @@
 
 
 <div class="contenedor-principal">
-  <app-peliculas-form></app-peliculas-form>
+  <app-peliculas-form (search)="onSearch($event)"></app-peliculas-form>
   <main class="columna-resultados">
-    <app-movie-list [movies]="moviesSignal()?.movies ?? []"></app-movie-list>
+    <app-movie-list 
+      [movies]="movies()" 
+      [loading]="loading()"
+      [currentPage]="currentPage()"
+      [totalPages]="totalPages()"
+      (pageChange)="onPageChange($event)">
+    </app-movie-list>
   </main>
 </div>
 

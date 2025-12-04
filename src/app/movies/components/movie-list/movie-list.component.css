@@ -76,3 +76,11 @@ app-loader, p {
     justify-content: center;
 }
 
+.movie-list-container.is-loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+

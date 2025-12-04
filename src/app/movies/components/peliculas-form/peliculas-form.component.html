@@ -5,6 +5,9 @@
       <mat-form-field appearance="fill" class="navbar-input">
         <input matInput type="text" formControlName="titulo" placeholder="Buscar por Título">
         <mat-icon matSuffix>search</mat-icon>
+        @if (filtrosForm.get('titulo')?.hasError('hasSpecialChars')) {
+          <mat-error>No se permiten caracteres especiales</mat-error>
+        }
       </mat-form-field>
     </div>
     <div class="navbar-search-item">
@@ -24,7 +27,13 @@
       <input type="range" formControlName="puntuacion" min="0" max="10" step="0.5" class="slider-input" />
     </div>
     <div class="navbar-search-item">
-      <button mat-raised-button color="primary" type="submit">Buscar</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="filtrosForm.invalid">
+        @if (filtrosForm.invalid) {
+          <mat-icon>close</mat-icon>
+        } @else {
+          Buscar
+        }
+      </button>
       <button mat-button type="button" (click)="limpiarFiltros()">Limpiar</button>
     </div>
   </form>

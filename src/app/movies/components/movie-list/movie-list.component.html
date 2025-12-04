@@ -1,5 +1,5 @@
 
-<div class="movie-list-container">
+<div class="movie-list-container" [class.is-loading]="loading()">
   @if (movies().length > 0) {
     @for (movie of movies(); track movie.id) {
       <div class="movie-card">
@@ -17,13 +17,13 @@
 </div>
 
 <div class="pagination-controls-ui flat-style">
-    <button mat-icon-button (click)="prevPage()" [disabled]="currentPage === 1" aria-label="Página anterior">
-     <mat-icon>{{ currentPage === 1 ? 'close' : 'chevron_left' }}</mat-icon>
+    <button mat-icon-button (click)="prevPage()" [disabled]="currentPage() === 1" aria-label="Página anterior">
+     <mat-icon>{{ currentPage() === 1 ? 'close' : 'chevron_left' }}</mat-icon>
     </button>
     <span class="mat-paginator-info">
-        Página <b> {{currentPage}} </b> de <b> {{totalPages}} </b>
+        Página <b> {{currentPage()}} </b> de <b> {{totalPages()}} </b>
     </span>
-    <button mat-icon-button (click)="nextPage()" [disabled]="currentPage === totalPages || totalPages === 0" aria-label="Página siguiente">
-     <mat-icon>{{ (currentPage === totalPages || totalPages === 0) ? 'close' : 'chevron_right' }}</mat-icon>
+    <button mat-icon-button (click)="nextPage()" [disabled]="currentPage() === totalPages() || totalPages() === 0" aria-label="Página siguiente">
+     <mat-icon>{{ (currentPage() === totalPages() || totalPages() === 0) ? 'close' : 'chevron_right' }}</mat-icon>
     </button>
 </div>
